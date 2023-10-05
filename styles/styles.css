@@ -1,0 +1,502 @@
+/* Box sizing, normalizar el tamaño del box model */
+html {
+  box-sizing: border-box;
+  font-size: 62.5%; 
+  /* Este es un hack que permite que el valor de los rem sea igual a 10px */
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/* Globales */
+body{
+  font-family: 'Dosis', sans-serif;
+  font-size: 1.6rem;
+  line-height: 2;
+}
+h1,h2,h3{
+  font-family: 'Noto Serif JP', serif;
+  margin: 0 0 5rem 0;
+}
+h1{
+  font-size: 4rem;
+}
+@media (min-width: 768px) {
+  h1{
+    font-size: 5rem;
+  }
+}
+
+h2{
+  font-size: 3.2rem;
+}
+@media (min-width: 768px) {
+  h2{
+    font-size: 4rem;
+  }
+}
+
+h3{
+  font-size: 2.4rem;
+}
+@media (min-width: 768px) {
+  h3{
+    font-size: 3rem;
+  }
+}
+a{
+  text-decoration: none;
+  color: black;
+}
+.contenedor{
+  width: 90%;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .contenedor{
+    width: 95%;
+  }
+}
+@media (min-width: 1024px) {
+  .contenedor{
+    width: 80%;
+  }
+}
+/* Estos estilos nos ayudan a que la imagen ocupe el 100% del contenedor
+sin importar el tamaño original de la imagen, sin dejar espacios. */
+img{
+  max-width: 100%;
+  display: block;
+}
+p{
+  letter-spacing: .1rem;
+}
+
+.btn{
+  background-color: #8cbc00;
+  border-radius: 0.7rem;
+  border-style: none;
+  color: #ffffff;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  padding: 1rem;
+  transition: background-color .3s ease-out;
+}
+
+.btn:hover{
+  background-color: #769c02;
+  cursor: pointer;
+}
+
+/* Utilidades */
+.text-center{
+  text-align: center;
+}
+.center-items{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Header  y navbar*/
+.nombre-sitio{
+  text-align: center;
+  margin-top: 5rem;
+}
+.nombre-sitio  span{
+  color: #037bc0;
+}
+.contenedor-navegacion{
+  border-top: 0.1rem solid #e1e1e1;
+}
+.contenedor-navegacion a{
+  font-size: larger;
+}
+.nav-principal{
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  justify-content: space-around;
+}
+@media (min-width: 768px) {
+  .nav-principal{
+    flex-direction: row;
+    gap: 0;
+  }
+}
+
+/* Hero section */
+.hero{
+  background-image: url(../assets/alter-img/principal.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 45rem;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .hero{
+    height: 55rem;
+  }
+}
+
+/* Categorias */
+.categorias{
+  padding-top: 5rem;
+}
+
+.listado-categorias{
+  display:grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.categoria a{
+  text-align: center;
+  /* Aqui se aplica display:block; por que los enlaces por defecto tienen un display:inline;
+  lo cual hace que el elemento solo use el espacio necesario y no el del contenedor padre */
+  display: block;
+  font-size: larger;
+  padding: 2rem;
+}
+.categoria a:hover{
+  background-color: #037bc0;
+  color: #ffffff;
+  border-bottom-right-radius: 1rem;
+}
+.categoria img{
+  border-top-right-radius: 1rem ;
+  border-top-left-radius: 1rem ;
+  height: 25rem;
+  width: 100%;
+  object-fit: cover;
+}
+@media (min-width: 768px) {
+  
+  .listado-categorias{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .categoria img{
+    height: 30rem;
+  }
+}
+/* Sobre nosotros */
+
+.sobre-nosotros{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 30rem 30rem;
+  margin: 5rem 0;
+  
+}
+.bg-image-div{
+  width: 100vw;
+  background-image: url(../assets/alter-img/nosotros.png);
+  background-size: cover;
+  background-position: bottom center;
+  
+}
+.sobre-nosotros-inf-container{
+  background-color: #037bc0; 
+  color: #ffffff;
+}
+.sobre-nosotros-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.sobre-nosotros-info h2{
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .sobre-nosotros{
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 40rem;
+  }
+  .bg-image-div{
+    width: 50vw;
+  }
+}
+
+/* Listado de productos */
+
+.listado-productos{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.producto:nth-child(1) img,
+.producto:nth-child(2) img,
+.producto:nth-child(3) img,
+.producto:nth-child(4) img,
+.producto:nth-child(5) img,
+.producto:nth-child(6) img{
+  height: 30rem;
+  width: 100%;
+  object-fit: cover;
+}
+.producto{
+  background-color: #037bc0;
+}
+.texto-producto .precio{
+  font-weight: bolder;
+  font-size: xx-large;
+}
+.texto-producto{
+  color: #ffffff;
+  text-align: center; 
+  padding: 2rem;
+}
+.texto-producto h3{
+  margin: 0;
+}
+.texto-producto p{
+  margin: 0 0 .5rem 0;
+}
+@media (min-width: 768px) {
+  .listado-productos{
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .producto:nth-child(1){
+    grid-column-start: 1;
+    grid-column-end: 7;
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+  }
+  
+  .producto:nth-child(1) img{
+    height: 46rem;
+  }
+  .producto:nth-child(2){
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+  .producto:nth-child(3){
+    grid-column-start: 4;
+    grid-column-end: 7;
+  }
+  .producto:nth-child(4){
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+  .producto:nth-child(5){
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+  .producto:nth-child(6){
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+}
+
+/* Footer site */
+
+.footer-site {
+  margin-top: 5rem;
+  padding-top: 5rem;
+  border-top: 1px solid #e1e1e1;
+}
+.footer-site h3{
+  margin-bottom: 0;
+}
+.grid-footer{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+.footer-menu a{
+  display: block;
+}
+.copyright{
+  text-align: center;
+  margin-top: 5rem;
+}
+@media (min-width: 576px) {
+  .grid-footer{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 768px) {
+  .grid-footer{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+/* Pagina nosotros. */
+
+.p-nosotros-container{
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 3rem;
+}
+.p-nosotros-container img{
+  height: 45rem;
+  width: 100%;
+  object-fit: cover;
+  border-radius: .5rem;
+}
+@media (min-width: 768px) {
+  .p-nosotros-container{
+    grid-template-columns: 1fr 2fr;
+    column-gap: 3rem;
+  }
+  .p-nosotros-contenido-texto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+/* Pagina Blog */
+.contenido-principal{
+  margin-top: 3rem;
+}
+.p-blog-contenedor{
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.p-blog-entrada{
+  border-bottom: 2px solid #e1e1e1;
+  padding-bottom: 3rem;
+  margin-bottom: 3rem;
+}
+.p-blog-entrada a{
+  display: block;
+  width: 30rem;
+  margin-top: 3rem;
+}
+.entrada-meta{
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+.entrada-meta span{
+  color: #037bc0;
+}
+.aside ul{
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .contenido-principal{
+    margin-top: 0;
+  }
+  .p-blog-contenedor{
+    grid-template-columns: 2fr 1fr;
+  }
+  .p-blog-entrada:last-of-type{
+    border: none;
+  }
+}
+
+/* Entrada de blog */
+
+.contenido-entrada-blog{
+  margin-top: 5rem;
+}
+.p-entrada-inner-container{
+  width: 60rem;
+  margin: 0 auto;
+}
+.p-entrada-inner-container a{
+  display: block;
+  width: 20rem;
+  margin-top: 3rem;
+}
+
+/* Galeria */
+.galeria{
+  display: grid;
+  grid-template-columns: repeat(1fr);
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+}
+.galeria img{
+  width: 100%;
+  height: 30rem;
+  object-fit: cover;
+  border-radius: 0.7rem;
+}
+
+@media (min-width: 768px) {
+  .galeria{
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .img-1, .img-4, .img-6, .img-9{
+    grid-column: span 2;
+  }
+  .img-5{
+    grid-column: span 3;
+  }
+}
+
+/* Formulario */
+
+.p-contacto-form{
+  width: 95%;
+  margin: 0 auto;
+}
+@media (min-width: 576px) {
+  .p-contacto-form{
+    width: 85%;
+  }
+}
+.p-contacto-form fieldset{
+  border: 1px solid black;
+  margin-bottom: 2rem;
+}
+.p-contacto-form legend {
+  width: 100%;
+  background-color: #005485;
+  padding: .5rem;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 3rem;
+}
+.p-contacto-campo{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.radio-btn{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+.radio-btn label{
+  flex-basis: 10rem;
+}
+.p-contacto-campo input:not([type = "radio"]),
+.p-contacto-campo textarea,
+.p-contacto-campo select {
+  border: 1px solid #e1e1e1;
+  flex: 1;
+  padding: 1rem;
+  margin-bottom: 3rem;
+}
+.p-contacto-campo input{
+  margin-bottom: 3rem;
+}
+.radio-btn input{
+  flex: 1;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .p-contacto-form{
+    width: 70rem;
+  }
+  .p-contacto-campo{
+    flex-direction: row;
+  }
+  .p-contacto-campo label{
+    flex-basis: 10rem;
+  }
+  
+}
